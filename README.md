@@ -1,58 +1,36 @@
-# Görselleştirme Modülü – `aslı` Branch
+# Kalp Hastalığı Tahmin Projesi
 
-Bu modül, kalp hastalığı tahmin projesi kapsamında görselleştirme görevlerini sade, modüler ve yeniden kullanılabilir şekilde organize eder. Amaç; verinin yapısını anlamayı kolaylaştıran ve model çıktılarının yorumlanabilirliğini artıran grafikler üretmektir.
+Bu proje, kalp hastalığı riskini tahmin etmeye yönelik bir makine öğrenmesi uygulamasıdır. Veri analizi, görselleştirme ve sınıflandırma modelleri kullanılarak gerçekleştirilmiştir.
 
----
+## 🔍 Projenin Amacı
+Kalp hastalığı ile ilişkili faktörleri analiz ederek, bireylerin kalp hastalığı riskini tahmin eden bir model geliştirmek.
 
-## 🎯 Modülün Odak Noktası
+## 🧠 Kullanılan Yöntemler
+- Veri temizleme ve ön işleme (pandas)
+- Görselleştirme (seaborn, matplotlib)
+- Makine öğrenmesi (scikit-learn)
+  - Random Forest sınıflandırıcısı
+  - ROC eğrisi, Confusion Matrix gibi değerlendirme metrikleri
 
-- Tüm görseller bağımsız Python dosyalarında yer alır.
-- Fonksiyonlar tek parametreyle (genellikle `df`) çağrılır.
-- Hem Jupyter hem Streamlit hem de `main.py` entegrasyonlarına uygundur.
-- Kod okunabilirliği, estetik ve yorumlanabilirlik ön plandadır.
+## 📊 Uygulanan Analiz ve Grafikler
+Bu branch’te aşağıdaki özel görselleştirme ve analiz fonksiyonları geliştirilmiştir:
 
----
+- `plot_chestpain_vs_disease`: Göğüs ağrısı türüne göre hastalık oranı
+- `plot_age_distribution`: Yaş dağılımı (histogram + KDE)
+- `plot_confusion_matrix`: Gerçek vs tahmin sınıflandırmaları
+- `plot_correlation_heatmap`: Korelasyon ısı haritası
+- `plot_feature_importance`: Modelin özellik önem düzeyleri
+- `plot_gender_vs_disease`: Cinsiyete göre hastalık oranı
+- `plot_roc_curve`: ROC eğrisi ile model başarısı
 
-## 📁 Klasör Yapısı – `grafikler/`
+## ⚙️ Nasıl Çalıştırılır?
 
+```bash
+# Sanal ortamı etkinleştirin
+source .venv/Scripts/activate  # Windows için
+# Gerekli paketleri yükleyin
+pip install -r requirements.txt
 
----
-
-## 🔍 Fonksiyon Özeti
-
-| Dosya                           | Fonksiyon                          | Açıklama                                     |
-|----------------------------------|-------------------------------------|----------------------------------------------|
-| `plot_age_distribution.py`       | `plot_age_distribution(df)`        | Yaş histogramı + KDE eğrisi                  |
-| `plot_chestpain_vs_disease.py`   | `plot_chestpain_vs_disease(df)`    | Göğüs ağrısı tipi vs hastalık oranları       |
-| `plot_confusion_matrix.py`       | `plot_confusion_matrix(y_true, y_pred)` | Model doğruluk matrisi                  |
-| `plot_correlation_heatmap.py`    | `plot_correlation_heatmap(df)`     | Korelasyon ısı haritası                      |
-| `plot_feature_importance.py`     | `plot_feature_importance(model, df)` | Özellik önem sıralaması                 |
-| `plot_gender_vs_disease.py`      | `plot_gender_vs_disease(df)`       | Cinsiyete göre hastalık oranı                |
-| `plot_roc_curve.py`              | `plot_roc_curve(model, X_test, y_test)` | ROC eğrisi ve AUC değeri              |
-
----
-
-## 🧪 Kullanım Örneği
-
-```python
-from grafikler.plot_correlation_heatmap import plot_correlation_heatmap
-plot_correlation_heatmap(df)
-Fonksiyonlar doğrudan çağrılabilir ve farklı platformlara entegre edilebilir.
-
-👩‍💻 Modül Geliştirici: Aslı
-Bu modül, aslı branch altında Aslı tarafından geliştirilmiştir. Görevler:
-
-Grafik fonksiyonlarının dosya bazlı modüler yapıda tanımlanması
-
-Kod stilinin okunabilir ve estetik biçimde kurgulanması
-
-Alfabetik dosya sıralaması ile erişim kolaylığı sağlanması
-
-Branch üzerinden main entegrasyon sürecinin yapılandırılması
-
-🔄 Branch Bilgisi
-Bu modül yalnızca aslı branch’ta yer almaktadır.
-
-data/heart.csv dosyasına erişim main branch üzerinden sağlanmalıdır.
-
-grafikler/ klasörü PR süreciyle main branch’a entegre edilecektir.
+# Örnek: ROC eğrisi grafiğini çalıştırmak için
+python plot_roc_curve.py
+z.
