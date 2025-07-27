@@ -2,24 +2,28 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-def plot_chestpain_vs_disease(df: pd.DataFrame) -> None:
+def plot_chestpain_vs_disease(df: pd.DataFrame):
     """
-    Veri çerçevesi içindeki göğüs ağrısı türlerinin kalp hastalığı oranlarıyla ilişkisini gösterir.
-    Ortalama hastalık oranlarına göre bar grafiği sunar.
+    Göğüs ağrısı türlerinin kalp hastalığı oranlarıyla ilişkisini gösterir.
+    Ortalama hastalık oranlarına göre bar grafiği üretir.
+
+    Args:
+        df (pd.DataFrame): Kalp hastalığı verilerini içeren veri çerçevesi
+
+    Returns:
+        matplotlib.figure.Figure: Üretilen bar grafiği
     """
     sns.set_style("whitegrid")
-    plt.figure(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(8, 5))
 
     chest_disease = df.groupby("ChestPainType")["HeartDisease"].mean().sort_values()
-    sns.barplot(x=chest_disease.index, y=chest_disease.values, palette="viridis")
+    sns.barplot(x=chest_disease.index, y=chest_disease.values, palette="viridis", ax=ax)
 
-    plt.title("Göğüs Ağrısı Türü vs Kalp Hastalığı Oranı", fontsize=14)
-    plt.xlabel("Göğüs Ağrısı Türü")
-    plt.ylabel("Kalp Hastalığı Oranı")
-    plt.ylim(0, 1)
-    plt.tight_layout()
-    plt.show()
+    ax.set_title("Göğüs Ağrısı Türü vs Kalp Hastalığı Oranı", fontsize=14)
+    ax.set_xlabel("Göğüs Ağrısı Türü")
+    ax.set_ylabel("Kalp Hastalığı Oranı")
+    ax.set_ylim(0, 1)
+    fig.tight_layout()
 
-if __name__ == "__main__":
-    df = pd.read_csv("data/heart.csv")  # Dosya yolunu ihtiyaca göre güncelle
-    plot_chestpain_vs_disease(df)
+    return fig
+
