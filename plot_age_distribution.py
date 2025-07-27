@@ -2,23 +2,26 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
-def plot_age_distribution(df: pd.DataFrame) -> None:
+def plot_age_distribution(df: pd.DataFrame):
     """
-    Veri çerçevesi içindeki yaş değişkeninin dağılımını gösterir.
-    Histogram ve KDE eğrisi bir arada sunulur.
+    Kalp hastalığı veri setindeki yaş değişkeninin istatistiksel dağılımını görselleştirir.
+    Hem histogram hem KDE eğrisi ile yaşın genel profilini sunar.
+
+    Args:
+        df (pd.DataFrame): Yaş verisini içeren veri çerçevesi
+
+    Returns:
+        matplotlib.figure.Figure: Oluşturulan yaş dağılımı grafiği
     """
     sns.set_style("whitegrid")
-    plt.figure(figsize=(8, 5))
-    sns.histplot(data=df, x="Age", bins=15, kde=True, color="salmon")
+    fig, ax = plt.subplots(figsize=(8, 5))
+    sns.histplot(data=df, x="Age", bins=15, kde=True, color="salmon", ax=ax)
 
-    plt.title("Yaş Dağılımı", fontsize=14)
-    plt.xlabel("Yaş")
-    plt.ylabel("Kişi Sayısı")
-    plt.tight_layout()
-    plt.show()
+    ax.set_title("Yaş Dağılımı", fontsize=14)
+    ax.set_xlabel("Yaş")
+    ax.set_ylabel("Kişi Sayısı")
+    fig.tight_layout()
+
+    return fig
 
 
-if __name__ == "__main__":
-    df = pd.read_csv("data/heart.csv")  # Dosya yolunu ihtiyaca göre güncelle
-    plot_age_distribution(df)
