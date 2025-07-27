@@ -24,3 +24,9 @@ def plot_correlation_heatmap(df: pd.DataFrame):
 
     return fig
 
+if __name__ == "__main__":
+    df = pd.read_csv("data/heart.csv")  # Dosya yolunu kendi projenize göre ayarlayın
+    fig = plot_correlation_heatmap(df)
+    plt.show()
+
+

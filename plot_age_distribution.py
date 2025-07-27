@@ -24,4 +24,10 @@ def plot_age_distribution(df: pd.DataFrame):
 
     return fig
 
+if __name__ == "__main__":
+    df = pd.read_csv("data/heart.csv")  # Dosya yolunu projenin dosya yapısına göre kontrol et
+    fig = plot_age_distribution(df)
+    plt.show()
+
+
 

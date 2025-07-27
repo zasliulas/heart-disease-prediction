@@ -28,3 +28,19 @@ def plot_feature_importance(model, feature_names: list):
 
     return fig
 
+if __name__ == "__main__":
+    # Örnek kullanım (RandomForestClassifier ile)
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.datasets import load_iris
+
+    data = load_iris()
+    X, y = data.data, data.target
+    feature_names = data.feature_names
+
+    model = RandomForestClassifier(random_state=42)
+    model.fit(X, y)
+
+    fig = plot_feature_importance(model, feature_names)
+    plt.show()
+
+
