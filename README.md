@@ -1,36 +1,70 @@
-# Kalp Hastalığı Tahmin Projesi
+# Heart Disease Prediction Projesi
 
-Bu proje, kalp hastalığı riskini tahmin etmeye yönelik bir makine öğrenmesi uygulamasıdır. Veri analizi, görselleştirme ve sınıflandırma modelleri kullanılarak gerçekleştirilmiştir.
+## Proje Hakkında
+Kalp hastalığı tahmini için veri analizi ve makine öğrenmesi modelleri geliştirmeyi amaçlayan bir proje.
 
-## 🔍 Projenin Amacı
-Kalp hastalığı ile ilişkili faktörleri analiz ederek, bireylerin kalp hastalığı riskini tahmin eden bir model geliştirmek.
+---
 
-## 🧠 Kullanılan Yöntemler
-- Veri temizleme ve ön işleme (pandas)
-- Görselleştirme (seaborn, matplotlib)
-- Makine öğrenmesi (scikit-learn)
-  - Random Forest sınıflandırıcısı
-  - ROC eğrisi, Confusion Matrix gibi değerlendirme metrikleri
+## Dosya ve Klasör Yapısı
 
-## 📊 Uygulanan Analiz ve Grafikler
-Bu branch’te aşağıdaki özel görselleştirme ve analiz fonksiyonları geliştirilmiştir:
+- `data/`  
+  Veri setleri ve ham dosyaların bulunduğu klasör.
 
-- `plot_chestpain_vs_disease`: Göğüs ağrısı türüne göre hastalık oranı
-- `plot_age_distribution`: Yaş dağılımı (histogram + KDE)
-- `plot_confusion_matrix`: Gerçek vs tahmin sınıflandırmaları
-- `plot_correlation_heatmap`: Korelasyon ısı haritası
-- `plot_feature_importance`: Modelin özellik önem düzeyleri
-- `plot_gender_vs_disease`: Cinsiyete göre hastalık oranı
-- `plot_roc_curve`: ROC eğrisi ile model başarısı
+- `notebooks/`  
+  Jupyter Notebook dosyalarının bulunduğu klasör.
 
-## ⚙️ Nasıl Çalıştırılır?
+- `src/`  
+  Python kaynak kodlarının bulunduğu klasör.
 
-```bash
-# Sanal ortamı etkinleştirin
-source .venv/Scripts/activate  # Windows için
-# Gerekli paketleri yükleyin
-pip install -r requirements.txt
+- `reports/`  
+  Proje çıktılarına, grafiklere ve raporlara ait klasör.
 
-# Örnek: ROC eğrisi grafiğini çalıştırmak için
-python plot_roc_curve.py
-z.
+- `README.md`  
+  Proje açıklaması ve rehberi.
+
+- `requirements.txt`  
+  Projede kullanılan Python paketleri listesi.
+
+---
+
+## Branch Çalışma Kuralları
+
+- Main branch’e doğrudan push yapmak yasaktır.  
+- Tüm değişiklikler, kendi branch’inde yapılıp Pull Request (PR) ile main’e gönderilmelidir.  
+- Branch isimlendirme önerileri:  
+  - `feature/özellik-adi`  
+  - `bugfix/hata-adi`  
+- PR açarken ne yaptığınızı açıklayın ve en az bir ekip üyesinden onay alın.  
+- Onaylanan PR’lar main’e merge edilir.  
+- Main branch her zaman stabil ve deploy edilebilir olmalıdır.
+
+---
+
+## Nasıl Katkı Yapılır?
+
+1. Projeye klonlayın:  
+   ```bash
+   git clone https://github.com/kullaniciadi/projeadi.git
+Size atanmış branch’e geçin (örneğin ayse-branch):
+
+bash
+Kopyala
+Düzenle
+git checkout ayse-branch
+Kodlarınızı yazıp commit edin:
+
+bash
+Kopyala
+Düzenle
+git add .
+git commit -m "Yaptığım değişiklik açıklaması"
+Branch’inize push yapın:
+
+bash
+Kopyala
+Düzenle
+git push origin ayse-branch
+GitHub üzerinden New pull request açın.
+
+Kodlarınız incelenip main’e merge edilir.
+
