@@ -67,3 +67,4 @@ git push origin ayse-branch
 GitHub üzerinden New pull request açın.
 
 Kodlarınız incelenip main’e merge edilir.
+
