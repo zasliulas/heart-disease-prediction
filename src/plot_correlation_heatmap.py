@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -25,8 +26,12 @@ def plot_correlation_heatmap(df: pd.DataFrame):
     return fig
 
 if __name__ == "__main__":
-    df = pd.read_csv("data/heart.csv")  # Dosya yolunu kendi projenize göre ayarlayın
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    csv_path = os.path.join(BASE_DIR, "data", "heart.csv")
+    df = pd.read_csv(csv_path)  # Dosya yolunu dinamik yaptık
     fig = plot_correlation_heatmap(df)
     plt.show()
+
+
 
 
