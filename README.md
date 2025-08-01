@@ -1,62 +1,71 @@
-# Kalp Hastalığı Tahmini Projesi
+# Heart Disease Prediction Projesi
 
-Bu proje, çeşitli sağlık parametrelerini kullanarak kalp hastalığı riskini tahmin eden bir makine öğrenimi uygulamasıdır.
+## Proje Hakkında
+Kalp hastalığı tahmini için veri analizi ve makine öğrenmesi modelleri geliştirmeyi amaçlayan bir proje.
 
-## Proje Yapısı
+---
 
-- `app.py`: Streamlit web uygulaması
-- `train_model.py`: Model eğitim kodu
-- `scripts/download_data.py`: Veri setini indirme scripti
-- `scripts/explore_data.py`: Veri keşfi ve görselleştirme scripti
-- `heart.csv`: Kalp hastalığı veri seti
-- `model.pkl`: Eğitilmiş model dosyası (eğitim sonrası oluşturulur)
-- `scaler.pkl`: Veri ölçeklendirme dosyası (eğitim sonrası oluşturulur)
+## Dosya ve Klasör Yapısı
 
-## Kurulum
+- `data/`  
+  Veri setleri ve ham dosyaların bulunduğu klasör.
 
-1. Gerekli kütüphaneleri yükleyin:
-\`\`\`bash
-pip install streamlit pandas numpy scikit-learn joblib matplotlib seaborn requests
-\`\`\`
+- `notebooks/`  
+  Jupyter Notebook dosyalarının bulunduğu klasör.
 
-2. Veri setini indirin:
-\`\`\`bash
-python scripts/download_data.py
-\`\`\`
+- `src/`  
+  Python kaynak kodlarının bulunduğu klasör.
 
-3. Veri setini keşfedin (isteğe bağlı):
-\`\`\`bash
-python scripts/explore_data.py
-\`\`\`
+- `reports/`  
+  Proje çıktılarına, grafiklere ve raporlara ait klasör.
 
-4. Modeli eğitin:
-\`\`\`bash
-python train_model.py
-\`\`\`
+- `README.md`  
+  Proje açıklaması ve rehberi.
 
-5. Uygulamayı çalıştırın:
-\`\`\`bash
-streamlit run app.py
-\`\`\`
+- `requirements.txt`  
+  Projede kullanılan Python paketleri listesi.
 
-## Veri Seti
+---
 
-Veri seti aşağıdaki özellikleri içermektedir:
+## Branch Çalışma Kuralları
 
-- Age: Yaş
-- Sex: Cinsiyet (M: Erkek, F: Kadın)
-- ChestPainType: Göğüs ağrısı tipi (ATA, NAP, ASY, TA)
-- RestingBP: İstirahat kan basıncı (mmHg)
-- Cholesterol: Kolesterol (mg/dl)
-- FastingBS: Açlık kan şekeri > 120 mg/dl (1: Evet, 0: Hayır)
-- RestingECG: Dinlenme EKG sonucu (Normal, ST, LVH)
-- MaxHR: Maksimum kalp atış hızı
-- ExerciseAngina: Egzersize bağlı anjina (Y: Evet, N: Hayır)
-- Oldpeak: ST segmentindeki düşüş
-- ST_Slope: ST eğimi (Up, Flat, Down)
-- HeartDisease: Kalp hastalığı (1: Var, 0: Yok)
+- Main branch’e doğrudan push yapmak yasaktır.  
+- Tüm değişiklikler, kendi branch’inde yapılıp Pull Request (PR) ile main’e gönderilmelidir.  
+- Branch isimlendirme önerileri:  
+  - `feature/özellik-adi`  
+  - `bugfix/hata-adi`  
+- PR açarken ne yaptığınızı açıklayın ve en az bir ekip üyesinden onay alın.  
+- Onaylanan PR’lar main’e merge edilir.  
+- Main branch her zaman stabil ve deploy edilebilir olmalıdır.
 
-## Model
+---
 
-Bu projede Random Forest sınıflandırıcı kullanılmıştır. Model, GridSearchCV ile hiperparametre optimizasyonu yapılarak eğitilmiştir.
+## Nasıl Katkı Yapılır?
+
+1. Projeye klonlayın:  
+   ```bash
+   git clone https://github.com/kullaniciadi/projeadi.git
+Size atanmış branch’e geçin (örneğin ayse-branch):
+
+bash
+Kopyala
+Düzenle
+git checkout ayse-branch
+Kodlarınızı yazıp commit edin:
+
+bash
+Kopyala
+Düzenle
+git add .
+git commit -m "Yaptığım değişiklik açıklaması"
+Branch’inize push yapın:
+
+bash
+Kopyala
+Düzenle
+git push origin ayse-branch
+GitHub üzerinden New pull request açın.
+
+Kodlarınız incelenip main’e merge edilir.
+
 
