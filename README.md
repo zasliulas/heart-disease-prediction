@@ -68,7 +68,3 @@ GitHub üzerinden New pull request açın.
 
 Kodlarınız incelenip main’e merge edilir.
 
-<<<<<<< HEAD
-=======
-
->>>>>>> sila-branch
