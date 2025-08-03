@@ -25,7 +25,7 @@ from sklearn.metrics import confusion_matrix, classification_report, roc_auc_sco
 # In[23]:
 
 
-df = pd.read_csv("data/heart.csv") #Veri setini okumak için read komutu kullandık
+df = pd.read_csv("C:\\Users\\Huawei\\PycharmProjects\\heart-disease-prediction\\data\\heart.csv") #Veri setini okumak için read komutu kullandık
 df.head() #ilk 5 satırını görüntüler
 
 
